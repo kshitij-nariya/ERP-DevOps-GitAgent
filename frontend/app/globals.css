@@ -1,0 +1,319 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --text: #18202a;
+  --muted: #667085;
+  --line: #d8dee7;
+  --blue: #2463eb;
+  --green: #16803c;
+  --red: #c32b2b;
+  --yellow: #a16107;
+  --shadow: 0 12px 32px rgba(24, 32, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0 24px;
+}
+
+.topbar span {
+  font-weight: 700;
+}
+
+.topbar small {
+  color: var(--muted);
+}
+
+.trigger {
+  display: grid;
+  gap: 18px;
+  padding: 28px 0 20px;
+}
+
+.trigger h1 {
+  margin: 0;
+  font-size: clamp(34px, 6vw, 72px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.trigger p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.triggerRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+}
+
+.triggerRow input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  min-width: 0;
+}
+
+.triggerRow button,
+.demoRepos button,
+.tabs button,
+.reviewCard {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.triggerRow button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+  white-space: nowrap;
+}
+
+.triggerRow button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.demoRepos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.demoRepos button {
+  padding: 8px 12px;
+}
+
+.error {
+  color: var(--red);
+}
+
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.pipelineItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.agentBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 70px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+}
+
+.agentBox.done {
+  border-color: rgba(22, 128, 60, 0.28);
+  color: var(--green);
+  background: #eefaf2;
+}
+
+.connector {
+  display: none;
+}
+
+.recent h2,
+.commentPreview h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reviewCard {
+  display: grid;
+  gap: 8px;
+  min-height: 112px;
+  padding: 14px;
+  text-align: left;
+}
+
+.reviewCard span,
+.reviewCard strong,
+.reviewCard small {
+  overflow-wrap: anywhere;
+}
+
+.reviewCard small,
+.fileLine {
+  color: var(--muted);
+}
+
+.reviewPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.findings,
+.commentPreview {
+  min-width: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tabs button {
+  padding: 9px 12px;
+}
+
+.tabs button.active {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.tabs span {
+  color: var(--muted);
+}
+
+.findingList {
+  display: grid;
+  gap: 12px;
+}
+
+.findingCard,
+.empty {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.findingCard.critical {
+  border-left: 4px solid var(--red);
+}
+
+.findingCard.warning {
+  border-left: 4px solid var(--yellow);
+}
+
+.findingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.findingHeader span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.findingCard pre,
+.commentPreview pre,
+.detailJson {
+  overflow: auto;
+  border-radius: 8px;
+  background: #151a22;
+  color: #ecf0f4;
+  padding: 14px;
+  line-height: 1.5;
+}
+
+.fix {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.commentPreview pre {
+  min-height: 420px;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 900px) {
+  main {
+    padding: 16px;
+  }
+
+  .topbar,
+  .triggerRow {
+    align-items: stretch;
+  }
+
+  .topbar,
+  .triggerRow,
+  .pipeline,
+  .reviewGrid,
+  .reviewPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .triggerRow button {
+    justify-content: center;
+  }
+}

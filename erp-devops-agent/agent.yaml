@@ -1,0 +1,28 @@
+spec_version: "0.1.0"
+name: erp-devops-orchestrator
+version: 1.0.0
+description: >
+  Multi-agent code review system for Odoo/ERP GitHub repositories.
+  Orchestrates specialist agents to detect performance, security, XML,
+  and documentation issues in pull requests.
+model:
+  preferred: claude-sonnet-4-6
+skills:
+  - name: odoo-pattern-detection
+    path: skills/odoo-pattern-detection
+  - name: xml-analysis
+    path: skills/xml-analysis
+dependencies:
+  - name: orm-performance
+    path: agents/orm-performance
+  - name: xml-validator
+    path: agents/xml-validator
+  - name: security-reviewer
+    path: agents/security-reviewer
+  - name: documentation
+    path: agents/documentation
+compliance:
+  risk_tier: medium
+  recordkeeping:
+    audit_logging: true
+    retention_period: 90d

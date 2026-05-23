@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: security-reviewer
+version: 1.0.0
+description: Detects Odoo security vulnerabilities.

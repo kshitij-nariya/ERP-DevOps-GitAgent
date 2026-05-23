@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: documentation
+version: 1.0.0
+description: Generates PR summaries and module documentation.

@@ -1,0 +1,36 @@
+name: pr-review-workflow
+version: "1.0.0"
+description: Full automated PR review for Odoo/ERP repositories.
+triggers:
+  - github_webhook_pr
+  - github_webhook_push
+inputs:
+  repo_url: {type: string}
+  pr_number: {type: integer}
+  commit_sha: {type: string}
+  changed_files: {type: array}
+  diff_content: {type: string}
+steps:
+  classify_files:
+    skill: odoo-pattern-detection
+  orm_review:
+    agent: orm-performance
+    depends_on: [classify_files]
+  xml_review:
+    agent: xml-validator
+    depends_on: [classify_files]
+  security_review:
+    agent: security-reviewer
+    depends_on: [classify_files]
+  documentation:
+    agent: documentation
+    depends_on: [classify_files]
+  aggregate:
+    skill: odoo-pattern-detection
+    depends_on: [orm_review, xml_review, security_review, documentation]
+  post_to_github:
+    tool: github-comment
+    depends_on: [aggregate]
+  write_memory:
+    tool: memory-writer
+    depends_on: [aggregate]

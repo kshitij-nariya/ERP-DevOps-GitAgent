@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: orm-performance
+version: 1.0.0
+description: Detects Odoo ORM performance anti-patterns.

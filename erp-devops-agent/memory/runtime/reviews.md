@@ -141,3 +141,101 @@ Automated review runs are appended here by the backend.
 - Critical: 0 | Warnings: 0
 - Agents run: documentation
 - Duration: 4.93s
+
+## Review: kshitij-nariya/gcfs PR #0
+- Timestamp: 2026-05-23T14:02:11.084572
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 15.44s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:13:31.633410
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 35.71s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:14:00.069454
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 16.28s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:18:23.347868
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 22.81s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:21:15.775803
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 20.06s
+
+## Review: kshitij-nariya/gcfs PR #0
+- Timestamp: 2026-05-23T14:23:34.479398
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 21.92s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:25:50.805365
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 18.48s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T14:44:48.769694
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 25.65s
+
+## Review: ../demo/erp-devops-test-repo PR #0
+- Timestamp: 2026-05-23T14:59:06.954295
+- Files reviewed: 4
+- Critical: 6 | Warnings: 1
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 0.01s
+
+## Review: OCA/account-invoicing PR #0
+- Timestamp: 2026-05-23T14:59:13.103812
+- Files reviewed: 4
+- Critical: 0 | Warnings: 0
+- Agents run: documentation
+- Duration: 2.28s
+
+## Review: OCA/sale-workflow PR #0
+- Timestamp: 2026-05-23T14:59:26.688288
+- Files reviewed: 4
+- Critical: 0 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, documentation
+- Duration: 11.28s
+
+## Review: kshitij-nariya/bytee_com PR #0
+- Timestamp: 2026-05-23T15:00:00.669932
+- Files reviewed: 1
+- Critical: 0 | Warnings: 0
+- Agents run: xml-validator, documentation
+- Duration: 2.16s
+
+## Review: kshitij-nariya/technoq PR #0
+- Timestamp: 2026-05-23T15:00:41.010457
+- Files reviewed: 244
+- Critical: 24 | Warnings: 4
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 5.44s
+
+## Review: kshitij-nariya/gcfs PR #3
+- Timestamp: 2026-05-23T15:40:56.187638
+- Files reviewed: 10
+- Critical: 2 | Warnings: 0
+- Agents run: orm-performance, security-reviewer, xml-validator, documentation
+- Duration: 39.99s

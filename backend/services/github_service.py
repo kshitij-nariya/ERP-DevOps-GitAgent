@@ -51,17 +51,22 @@ def format_pr_comment(report: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-async def post_pr_comment(repo_full_name: str, pr_number: int, report: dict[str, Any]) -> int | None:
+async def post_pr_comment(repo_full_name: str, pr_number: int, report: dict[str, Any]) -> dict[str, Any]:
     if not GITHUB_TOKEN or pr_number <= 0:
-        return None
+        return {"status": "skipped", "reason": "missing_github_token_or_pr_number"}
 
-    async with httpx.AsyncClient(timeout=20) as client:
-        response = await client.post(
-            f"https://api.github.com/repos/{repo_full_name}/issues/{pr_number}/comments",
-            headers={
-                "Authorization": f"Bearer {GITHUB_TOKEN}",
-                "Accept": "application/vnd.github+json",
-            },
-            json={"body": format_pr_comment(report)},
-        )
-    return response.status_code
+    try:
+        async with httpx.AsyncClient(timeout=20) as client:
+            response = await client.post(
+                f"https://api.github.com/repos/{repo_full_name}/issues/{pr_number}/comments",
+                headers={
+                    "Authorization": f"Bearer {GITHUB_TOKEN}",
+                    "Accept": "application/vnd.github+json",
+                },
+                json={"body": format_pr_comment(report)},
+            )
+        if response.status_code >= 400:
+            return {"status": "error", "http_status": response.status_code, "body": response.text}
+        return {"status": "posted", "http_status": response.status_code}
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}

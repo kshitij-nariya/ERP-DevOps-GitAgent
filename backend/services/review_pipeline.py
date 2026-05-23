@@ -20,7 +20,7 @@ async def run_review_pipeline(
     repo_full_name: str,
 ) -> dict[str, Any]:
     start_time = time.time()
-    repo_data = get_repo_data(repo_url, head_sha, base_sha)
+    repo_data = get_repo_data(repo_url, head_sha, base_sha, repo_full_name, pr_number)
     file_contents = repo_data["file_contents"]
 
     orm_findings = analyze_orm(file_contents)
@@ -37,6 +37,7 @@ async def run_review_pipeline(
         "repo": repo_full_name,
         "pr_number": pr_number,
         "commit_sha": head_sha,
+        "base_sha": base_sha,
         "created_at": datetime.utcnow().isoformat(),
         "duration_seconds": round(time.time() - start_time, 2),
         "files_reviewed": len(repo_data["changed_files"]),
@@ -50,12 +51,15 @@ async def run_review_pipeline(
         "agent_trail": _agent_trail(repo_data),
     }
     report["comment_markdown"] = format_pr_comment(report)
+    github_comment_status = {"status": "skipped", "reason": "not_attempted"}
+    if pr_number > 0 and repo_full_name:
+        github_comment_status = await post_pr_comment(repo_full_name, pr_number, report)
+    report["github_comment_status"] = github_comment_status
+
     review_id = save_review(report)
     report["id"] = review_id
-    write_to_memory(report)
 
-    if pr_number > 0 and repo_full_name:
-        await post_pr_comment(repo_full_name, pr_number, report)
+    write_to_memory(report)
 
     return report
 
